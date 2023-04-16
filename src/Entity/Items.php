@@ -20,13 +20,16 @@ class Items
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?float $price = null;
+    private ?int $price = null;
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
     #[ORM\ManyToOne(inversedBy: 'items')]
-    private ?Category $category = null;
+    private ?category $category = null;
+
+    #[ORM\OneToOne(inversedBy: 'items', cascade: ['persist', 'remove'])]
+    private ?picture $picture = null;
 
     public function getId(): ?int
     {
@@ -57,12 +60,12 @@ class Items
         return $this;
     }
 
-    public function getPrice(): ?float
+    public function getPrice(): ?int
     {
         return $this->price;
     }
 
-    public function setPrice(float $price): self
+    public function setPrice(int $price): self
     {
         $this->price = $price;
 
@@ -81,14 +84,26 @@ class Items
         return $this;
     }
 
-    public function getCategory(): ?Category
+    public function getCategory(): ?category
     {
         return $this->category;
     }
 
-    public function setCategory(?Category $category): self
+    public function setCategory(?category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getPicture(): ?picture
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?picture $picture): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }

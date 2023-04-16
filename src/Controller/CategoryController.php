@@ -85,7 +85,6 @@ class CategoryController extends AbstractController
     #[Route("/{id}/items", methods: 'GET')]
     public function getProducts(Category $category)
     {
-
         return $this->json($category->getItems());
     }
 

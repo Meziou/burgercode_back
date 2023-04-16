@@ -6,7 +6,6 @@ use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Ignore;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 class Category
@@ -19,8 +18,7 @@ class Category
     #[ORM\Column(length: 100)]
     private ?string $name = null;
 
-    #[Ignore]
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: items::class)]
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Items::class)]
     private Collection $items;
 
     public function __construct()
@@ -46,14 +44,14 @@ class Category
     }
 
     /**
-     * @return Collection<int, items>
+     * @return Collection<int, Items>
      */
     public function getItems(): Collection
     {
         return $this->items;
     }
 
-    public function addItem(items $item): self
+    public function addItem(Items $item): self
     {
         if (!$this->items->contains($item)) {
             $this->items->add($item);
@@ -63,7 +61,7 @@ class Category
         return $this;
     }
 
-    public function removeItem(items $item): self
+    public function removeItem(Items $item): self
     {
         if ($this->items->removeElement($item)) {
             // set the owning side to null (unless already changed)

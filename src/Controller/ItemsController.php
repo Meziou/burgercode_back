@@ -77,7 +77,7 @@ class ItemsController extends AbstractController
     {
         try {
 
-            $serializer->deserialize($request->getContent(), Product::class, 'json', [
+            $serializer->deserialize($request->getContent(), Items::class, 'json', [
                 'object_to_populate' => $item
             ]);
             $this->repo->save($item, true);
