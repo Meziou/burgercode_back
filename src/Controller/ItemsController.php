@@ -40,7 +40,7 @@ class ItemsController extends AbstractController
         return $this->json($item);
     }
 
-    #[Route(methods:'POST')]
+    #[Route("/category_id", methods:'POST')]
     /**
      * La fonction add utilise le service SerializerInterface pour désérialiser le contenu de la demande (request) 
      * en un objet de la classe Item en utilisant le format JSON. Ensuite, elle appelle la méthode "save" du repository 

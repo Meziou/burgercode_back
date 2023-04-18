@@ -19,12 +19,6 @@ class CategoryController extends AbstractController
     {
     }
 
-    #[Route('/{create}',methods: 'POST')]
-    public function create(Request $request)
-    {
-        $category = $this->createCategory('Nouvelle catégorie');
-    }
-
     #[Route(methods: 'GET')]
     public function all(): Response
     {
@@ -83,23 +77,27 @@ class CategoryController extends AbstractController
     }
 
     #[Route("/{id}/items", methods: 'GET')]
-    public function getProducts(Category $category)
+    public function getItems(Category $category)
     {
         return $this->json($category->getItems());
     }
 
-    public function createCategory($name)
-    {
-        $entityManager = $this->getDoctrine()->getManager();
+    // public function createCategory($name)
+    // {
+    //     $entityManager = $this->getDoctrine()->getManager();
 
-        $category = new Category();
-        $category->setName($name);
+    //     $category = new Category();
+    //     $category->setName($name);
         
-        $entityManager->persist($category);
-        $entityManager->flush();
+    //     $entityManager->persist($category);
+    //     $entityManager->flush();
         
-        return $category;
-    }
+    //     return $category;
+    // }
     
-    
+    // #[Route('/{create}',methods: 'POST')]
+    // public function create(Request $request)
+    // {
+    //     $category = $this->createCategory('Nouvelle catégorie');
+    // }
 }

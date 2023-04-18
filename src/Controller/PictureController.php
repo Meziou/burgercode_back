@@ -62,7 +62,7 @@ class PictureController extends AbstractController
                 'object_to_populate' => $picture
             ]);
 
-            if ($this->getUser() != $picture->getOwner()) {
+            if ($this->getUser() != $picture->getItems()) {
                 return $this->json(['error' => 'Access denied'], Response::HTTP_UNAUTHORIZED);
             }
 
@@ -81,25 +81,11 @@ class PictureController extends AbstractController
     public function delete(Picture $picture): JsonResponse
     {
 
-        if ($this->getUser() != $picture->getOwner()) {
+        if ($this->getUser() != $picture->getItems()) {
             return $this->json(['error' => 'Access denied'], Response::HTTP_UNAUTHORIZED);
         }
         $this->repo->remove($picture);
         return $this->json(null, Response::HTTP_NO_CONTENT);
     }
 
-    #[Route('/{id}/like', methods: 'PATCH')]
-    public function like(Picture $picture)
-    {
-        if($picture->getLikes()->contains($this->getUser())) {
-            $picture->removeLike($this->getUser());
-        }else {
-            $picture->addLike($this->getUser());
-
-        }
-
-        $this->repo->save($picture, true);
-        return $this->json($picture);
-
-    }
 }

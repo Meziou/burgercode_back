@@ -60,11 +60,11 @@
     "colId": "history",
     "containerId": "",
     "name": "127.0.0.1:8000/api/category",
-    "url": "127.0.0.1:8000/api/category",
+    "url": "127.0.0.1:8000/api/category/3/items",
     "method": "GET",
     "sortNum": 0,
     "created": "2023-04-14T00:20:57.175Z",
-    "modified": "2023-04-14T00:20:57.175Z",
+    "modified": "2023-04-17T09:08:51.459Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -163,14 +163,9 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2023-04-14T00:30:31.623Z",
-    "modified": "2023-04-15T23:55:30.874Z",
+    "modified": "2023-04-16T21:49:34.145Z",
     "headers": [],
     "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"src\": \"me.png\"\n}",
-      "form": []
-    },
     "tests": []
   },
   {
@@ -216,18 +211,13 @@
     "colId": "history",
     "containerId": "",
     "name": "localhost:8000/api/category/3",
-    "url": "localhost:8000/api/category/3",
+    "url": "localhost:8000/api/category/3/items",
     "method": "GET",
     "sortNum": 0,
     "created": "2023-04-14T00:45:09.012Z",
-    "modified": "2023-04-14T00:45:09.012Z",
+    "modified": "2023-04-16T23:57:31.860Z",
     "headers": [],
     "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n  \"name\": \"burger\",\n  \"description\": \"burger chicken\",\n  \"price\": 9.90,\n  \"image\": \"burger_1\"\n}",
-      "form": []
-    },
     "tests": []
   },
   {
