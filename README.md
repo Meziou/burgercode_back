@@ -11,8 +11,7 @@ Composer
 
 
 ## Installation
-1. Clonez ce dépôt sur votre machine locale :
-git clone https://github.com/votre_nom_de_utilisateur/votre_projet.git
+1. Clonez ce projet sur votre terminal. 
 
 2. Installez les dépendances du projet avec Composer :
 composer install
